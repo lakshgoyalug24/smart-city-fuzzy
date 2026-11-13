@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart City Fuzzy Platform</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">SC</span>
+    <div><strong>Smart City Fuzzy Platform</strong><small>Mamdani, Sugeno and Tsukamoto on identical inputs</small></div></div>
+  <nav>
+    <button class="tab active" data-view="dashboard">Dashboard</button>
+    <button class="tab" data-view="evaluation">Evaluation</button>
+    <span id="status" class="status">Checking backend…</span>
+  </nav>
+</header>
+
+<main>
+<section id="dashboard" class="view">
+  <div class="hero">
+    <h1>Six city problems. Three fuzzy models. One set of inputs.</h1>
+    <p>Pick an application, move the sliders, and compare how each model answers. The fuzzy maths runs in Python; this page only draws the results.</p>
+  </div>
+  <h2>Applications</h2>
+  <div id="cards" class="grid"></div>
+
+  <div id="workspace" class="workspace" hidden>
+    <div class="ws-head"><h2 id="wsTitle"></h2><button id="closeWs" class="ghost">Back to applications</button></div>
+    <div class="ws-grid">
+      <div class="panel"><h3>Inputs</h3><div id="sliders"></div><button id="reset" class="ghost">Reset to defaults</button></div>
+      <div class="panel"><h3 id="outTitle">Output</h3><div id="results" class="results"></div><p id="reason" class="reason"></p>
+        <canvas id="aggChart" width="520" height="170"></canvas></div>
+    </div>
+    <div class="ws-grid">
+      <div class="panel"><h3>Membership functions</h3><div id="mfCharts"></div></div>
+      <div class="panel"><h3>Rules that fired <span id="ruleCount" class="muted"></span></h3><div id="rules"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="evaluation" class="view" hidden>
+  <div class="hero small"><h1>Evaluation</h1><p>Sweep one input across its full range while the others stay at the dashboard values, and watch how the three models respond.</p></div>
+  <div class="panel">
+    <div class="row">
+      <label>Application <select id="evMod"></select></label>
+      <label>Input to sweep <select id="evVar"></select></label>
+    </div>
+    <canvas id="sweepChart" width="900" height="360"></canvas>
+    <div id="legend" class="legend"></div>
+  </div>
+  <div class="panel how"><h3>How the models differ</h3>
+    <p><b>Mamdani</b> clips fuzzy output shapes by rule strength, merges them and takes the centroid. Smooth and easy to explain, but slowest.</p>
+    <p><b>Sugeno</b> uses a fixed number per rule and a weighted average. Fastest, good for control.</p>
+    <p><b>Tsukamoto</b> inverts a monotonic output curve per rule to get a crisp value, then takes a weighted average.</p></div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

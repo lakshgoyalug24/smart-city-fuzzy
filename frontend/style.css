@@ -1,0 +1,39 @@
+:root{--bg:#ffffff;--tint:#e6f4f4;--ink:#0f2a33;--mute:#4f6b73;--card:#ffffff;--line:#cfe3e6;--accent:#0d9488;--accent-d:#0b6f66;--blue:#2563eb;--green:#16a34a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.5}
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:12px 5vw;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.brand{display:flex;gap:12px;align-items:center}.brand small{display:block;color:var(--mute);font-size:12px}
+.logo{background:linear-gradient(135deg,var(--accent),var(--blue));color:#fff;font-weight:700;width:38px;height:38px;border-radius:8px;display:grid;place-items:center}
+nav{display:flex;gap:8px;align-items:center}
+.tab,.ghost{font:inherit;border:1px solid var(--line);background:transparent;color:var(--ink);padding:7px 14px;border-radius:6px;cursor:pointer}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.status{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mute)}
+.status.ok{color:var(--green);border-color:#86efac;background:#f0fdf4}.status.bad{color:#b91c1c;border-color:#fca5a5}
+main{max-width:1180px;margin:0 auto;padding:24px 5vw 60px}
+.hero{background:linear-gradient(120deg,#0d9488 0%,#0891b2 55%,#2563eb 100%);color:#fff;border-radius:14px;padding:36px;margin-bottom:28px}
+.hero h1{margin:0 0 10px;font-size:clamp(24px,3.6vw,38px);line-height:1.15;max-width:22ch}
+.hero p{margin:0;max-width:60ch;opacity:.85}.hero.small h1{font-size:28px;max-width:none}
+h2{font-size:22px;margin:0 0 14px}h3{margin:0 0 12px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.card:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(13,148,136,.15)}.card h3{margin-bottom:4px}.card p{margin:0 0 12px;color:var(--mute);font-size:14px}
+.chip{display:inline-block;background:var(--tint);color:var(--accent-d);border-radius:99px;padding:2px 10px;font-size:12px;margin:0 6px 6px 0}
+.card .meta{font-size:12px;color:var(--mute);border-top:1px solid var(--line);padding-top:8px;margin-top:6px}
+.workspace{margin-top:28px}.ws-head{display:flex;justify-content:space-between;align-items:center}
+.ws-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-bottom:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;overflow-x:auto}
+.slider{margin-bottom:16px}.slider label{display:flex;justify-content:space-between;font-size:14px}
+.slider input{width:100%;accent-color:var(--accent)}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.res{border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center}
+.res b{display:block;font-size:28px}.res span{font-size:13px;color:var(--mute)}
+.res.best{border-width:2px;border-color:var(--accent);background:var(--tint)}
+.reason{font-size:14px;color:var(--mute)}
+canvas{max-width:100%;height:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left}
+.bar{height:6px;background:linear-gradient(90deg,var(--accent),var(--blue));border-radius:3px}.muted{color:var(--mute);font-weight:400;font-size:13px}
+.row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}select{font:inherit;padding:6px;margin-left:6px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.legend{display:flex;gap:18px;font-size:14px;margin-top:8px}.legend i{display:inline-block;width:14px;height:4px;margin-right:6px;vertical-align:middle}
+.how p{max-width:75ch;font-size:14px}
+@media (max-width:600px){.results{grid-template-columns:1fr}.hero{padding:24px}}
